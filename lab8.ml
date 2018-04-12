@@ -136,7 +136,7 @@ one. If there is no listener with that id, do nothing.
       match x with 
       | {id = id1; action = _} -> id1 != i
     in
-    evt := List.filter filter_aux !evt;;
+    evt := hd (List.partition filter_aux !evt);;
 
 (*......................................................................
 Exercise 3: Write fire_event, which will execute all event handlers
@@ -144,7 +144,8 @@ listening for the event.
 ......................................................................*)
             
   let fire_event (evt : 'a event) (arg : 'a) : unit =
-    failwith "WEvent.fire_event not implemented"
+    let 
+    List.map !evt 
 
 end
   
