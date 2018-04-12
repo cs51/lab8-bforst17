@@ -132,11 +132,11 @@ one. If there is no listener with that id, do nothing.
 ......................................................................*)
             
   let remove_listener (evt : 'a event) (i : id) : unit =
-    let filter_aux (i : id) x = 
+    let filter_aux x = 
       match x with 
       | {id = id1; action = _} -> id1 <> i
     in
-    evt := List.filter (filter_aux i)!evt;;
+    evt := List.filter filter_aux !evt;;
 
 (*......................................................................
 Exercise 3: Write fire_event, which will execute all event handlers
@@ -144,7 +144,11 @@ listening for the event.
 ......................................................................*)
 
   let fire_event (evt : 'a event) (arg : 'a) : unit =
-    failwith "newswire not implemented" ;;
+    let fire_each x = 
+      match x with 
+      | {id = _; action = act} -> act arg
+    in 
+    List.iter fire_each !evt;;
 
 end
   
