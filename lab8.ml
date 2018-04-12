@@ -132,7 +132,10 @@ one. If there is no listener with that id, do nothing.
 ......................................................................*)
             
   let remove_listener (evt : 'a event) (i : id) : unit =
-    failwith "WEvent.remove_listener not implemented"
+    let filter_aux x = 
+      match x with 
+      | {id = id1; action = _} -> id1 != i
+    evt := List.filter filter_aux !evt;;
 
 (*......................................................................
 Exercise 3: Write fire_event, which will execute all event handlers
