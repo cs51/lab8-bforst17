@@ -123,9 +123,7 @@ decide how to implement this.
                                                    
   let add_listener (evt : 'a event) (listener : 'a -> unit) : id =
     let id = new_id () in
-    let w = new waiter {id; listener} in
-    evt :: w;
-    id;;
+    evt := !evt :: {id = id; action = listener; id;;
 
 (*......................................................................
 Exercise 2: Write remove_listener, which, given an id and an event,
