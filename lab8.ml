@@ -242,7 +242,7 @@ event instead.)
 
 (* .. *)
 
-print_string "Moved to publication.\n" ;;
+print_string "Moved to publication.\n" ;; 
 
 (*......................................................................
 Exercise 12: Finally, make sure that firing the publish event prints
