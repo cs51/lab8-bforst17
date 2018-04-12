@@ -134,7 +134,7 @@ one. If there is no listener with that id, do nothing.
   let remove_listener (evt : 'a event) (i : id) : unit =
     let filter_aux x = 
       match x with 
-      | {id = id1; action = _} -> id1 != i
+      | {id = id1; action = _} -> id1 <> i
     in
     evt := List.filter filter_aux !evt;;
 
@@ -142,11 +142,11 @@ one. If there is no listener with that id, do nothing.
 Exercise 3: Write fire_event, which will execute all event handlers
 listening for the event.
 ......................................................................*)
-            
+            (*)
   let fire_event (evt : 'a event) (arg : 'a) : unit =
     let 
     List.map !evt 
-
+(*)
 end
   
 (*====================================================================
