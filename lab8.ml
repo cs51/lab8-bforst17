@@ -136,7 +136,7 @@ one. If there is no listener with that id, do nothing.
       match x with 
       | {id = id1; action = _} -> id1 != i
     in
-    evt := hd (List.partition filter_aux !evt);;
+    evt := fst (List.partition filter_aux !evt);;
 
 (*......................................................................
 Exercise 3: Write fire_event, which will execute all event handlers
