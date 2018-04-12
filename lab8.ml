@@ -135,6 +135,7 @@ one. If there is no listener with that id, do nothing.
     let filter_aux x = 
       match x with 
       | {id = id1; action = _} -> id1 != i
+    in
     evt := List.filter filter_aux !evt;;
 
 (*......................................................................
