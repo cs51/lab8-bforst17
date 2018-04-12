@@ -142,11 +142,11 @@ one. If there is no listener with that id, do nothing.
 Exercise 3: Write fire_event, which will execute all event handlers
 listening for the event.
 ......................................................................*)
-            (*)
+            (*
   let fire_event (evt : 'a event) (arg : 'a) : unit =
     let 
     List.map !evt 
-(*)
+*)
 end
   
 (*====================================================================
